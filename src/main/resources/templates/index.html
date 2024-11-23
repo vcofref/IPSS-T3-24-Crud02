@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout/master}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Inicio</title>
+</head>
+<body>
+        <div class="row" layout:fragment="page-content" style="margin-top: 50px;">
+
+            <div class="col s6">
+                <div class="row center-align">
+                    <div class="col s12 m6">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">Series</span>
+                          <p></p>
+                        </div>
+                        <div class="card-action center-align">
+                          <a th:href="@{/series}">Listar</a>
+                          <a th:href="@{/series/nuevo}">Agregar</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col s6">
+                <div class="row">
+                    <div class="col s12 m6">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">Personajes</span>
+                          <p></p>
+                        </div>
+                        <div class="card-action center-align">
+                          <a th:href="@{/personajes}">Listar</a>
+                          <a th:href="@{/personajes/nuevo}">Agregar</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+      
+          </div>
+
+</body>
+</html>

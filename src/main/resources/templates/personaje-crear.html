@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/master}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Personas</title>
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Inicio</title>
+</head>
+
+<body>
+    <div class="row" layout:fragment="page-content" style="margin-top: 50px;">
+        <h3>Crear nuevo personaje</h3>
+        <form class="col s12" th:action="@{/personajes/guardar}" th:object="${personaje}" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" th:field="*{name}" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="bio">Biografía:</label>
+                    <textarea id="bio" th:field="*{bio}" class="materialize-textarea" required></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select th:field="*{serie}">
+                        <option value="" disabled selected>Selecciona una Serie</option>
+                        <option th:each="serie : ${series}" th:value="${serie.id}" th:text="${serie.title}"></option>
+                    </select>
+                    <label for="serie">Serie</label>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <button type="submit" class="btn">Guardar Personaje</button>
+            </div>
+    </div>
+    </form>
+    
+    </div>
+    <script layout:fragment="javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+    </script>
+    
+    
+</body>
+
+
+</html>

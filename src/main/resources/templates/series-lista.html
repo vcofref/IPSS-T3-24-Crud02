@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/master}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Personas</title>
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Inicio</title>
+</head>
+
+<body>
+    <div class="row" layout:fragment="page-content" style="margin-top: 50px;">
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Año</th>
+                <th>Acciones</th>
+            </tr>
+            <tr th:each="serie: ${series}">
+                <td th:text="${serie.title}"></td>
+                <td th:text="${serie.year}"></td>
+                <td>
+                    <a th:href="@{/series/editar/{id}(id=${serie.id})}" class="btn-small blue lighten-1">Editar</a>
+                    <a th:href="@{/series/eliminar/{id}(id=${serie.id})}" class="btn-small red darken-1">Eliminar</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
